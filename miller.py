@@ -4,7 +4,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def flux_surface(A=2.2, kappa=1.5, delta=0.3, R0=2.5, theta=np.linspace(0, 2 * np.pi)):
+def flux_surface(
+    A: float = 2.2,
+    kappa: float = 1.5,
+    delta: float = 0.3,
+    R0: float = 2.5,
+    theta: np.ndarray | tuple[np.ndarray | float] = np.linspace(0, 2 * np.pi),
+) -> tuple[np.ndarray, np.ndarray]:
     """Calculates flux surface, I think
 
     Args:
@@ -18,9 +24,9 @@ def flux_surface(A=2.2, kappa=1.5, delta=0.3, R0=2.5, theta=np.linspace(0, 2 * n
         _type_: _description_
     """
 
-    r = R0 / A
-    R_s = R0 + r * np.cos(theta + (np.arcsin(delta) * np.sin(theta)))
-    Z_s = kappa * r * np.sin(theta)
+    r: float = R0 / A
+    R_s: np.ndarray = R0 + r * np.cos(theta + (np.arcsin(delta) * np.sin(theta)))
+    Z_s: np.ndarray = kappa * r * np.sin(theta)
     return (R_s, Z_s)
 
 
@@ -32,7 +38,7 @@ def generate_image_filepath(file_name="miller.png"):
     return new_filepath
 
 
-def plot_surface(R_s, Z_s, file_path, savefig=True):
+def plot_surface(R_s, Z_s, file_path, savefig=True) -> None:
     """Plots the results from flux_surface()
 
     Args:
