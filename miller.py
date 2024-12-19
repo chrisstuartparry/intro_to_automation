@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -30,15 +28,7 @@ def flux_surface(
     return (R_s, Z_s)
 
 
-def generate_image_filepath(file_name="miller.png"):
-    current_path = Path.cwd()
-    new_filedir = current_path / "figures"
-    new_filedir.mkdir(exist_ok=True)
-    new_filepath = new_filedir / file_name
-    return new_filepath
-
-
-def plot_surface(R_s, Z_s, file_path, savefig=True) -> None:
+def plot_surface(R_s, Z_s, savefig=True) -> None:
     """Plots the results from flux_surface()
 
     Args:
@@ -50,12 +40,12 @@ def plot_surface(R_s, Z_s, file_path, savefig=True) -> None:
     plt.xlabel("R [m]")
     plt.ylabel("Z [m]")
     if savefig:
-        plt.savefig(file_path)
+        plt.savefig("miller.png")
 
 
 def main():
     R_s, Z_s = flux_surface()
-    plot_surface(R_s, Z_s, generate_image_filepath())
+    plot_surface(R_s, Z_s)
 
 
 if __name__ == "__main__":
