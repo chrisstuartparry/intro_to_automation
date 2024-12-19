@@ -28,7 +28,7 @@ def flux_surface(
     return (R_s, Z_s)
 
 
-def plot_surface(R_s, Z_s, savefig=True) -> None:
+def plot_surface(R_s, Z_s, ax, savefig=True) -> None:
     """Plots the results from flux_surface()
 
     Args:
@@ -39,6 +39,10 @@ def plot_surface(R_s, Z_s, savefig=True) -> None:
     plt.axis("equal")
     plt.xlabel("R [m]")
     plt.ylabel("Z [m]")
+    if ax is not None:
+        ax.plot
+    else:
+        
     if savefig:
         plt.savefig("miller.png")
 
