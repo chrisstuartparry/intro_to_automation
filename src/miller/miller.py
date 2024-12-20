@@ -9,7 +9,7 @@ def flux_surface(
     R0: float = 2.5,
     theta: np.ndarray | tuple[np.ndarray | float] = np.linspace(0, 2 * np.pi),
 ) -> tuple[np.ndarray, np.ndarray]:
-    """Calculates flux surface, I think
+    """Calculates flux surface.
 
     Args:
         A (float, optional): Area. Defaults to 2.2.
