@@ -12,14 +12,14 @@ def flux_surface(
     """Calculates flux surface, I think
 
     Args:
-        A (float, optional): _description_. Defaults to 2.2.
-        kappa (float, optional): _description_. Defaults to 1.5.
-        delta (float, optional): _description_. Defaults to 0.3.
-        R0 (float, optional): _description_. Defaults to 2.5.
-        theta (_type_, optional): _description_. Defaults to np.linspace(0, 2 * np.pi).
+        A (float, optional): Area. Defaults to 2.2.
+        kappa (float, optional): Elongation. Defaults to 1.5.
+        delta (float, optional): Triangularity. Defaults to 0.3.
+        R0 (float, optional): Major radius of the magnetic axis. Defaults to 2.5.
+        theta (_type_, optional): Geometric poloidal angle. Defaults to np.linspace(0, 2 * np.pi).
 
     Returns:
-        _type_: _description_
+        tuple[np.ndarray, np.ndarray]: Tuple of major radius of the flux surface and the vertical coordinate of the flux surface.
     """
 
     r: float = R0 / A
@@ -32,8 +32,8 @@ def plot_surface(R_s, Z_s, ax=None, savefig=True) -> None:
     """Plots the results from flux_surface()
 
     Args:
-        R_s (_type_): _description_
-        Z_s (_type_): _description_
+        R_s (np.ndarray): Major radius of the flux surface
+        Z_s (np.ndarray): Vertical coordinate of the flux surface
     """
     if ax is None:
         _, ax = plt.subplots()
